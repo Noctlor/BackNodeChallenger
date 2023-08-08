@@ -23,7 +23,7 @@ router.post('/signup', async (req, res) => {
     await user.save();
     res.send(user);
   } catch (error) {
-    console.error(error); // Agregamos esta línea para imprimir el error en la consola del servidor
+    console.error(error);
     res.status(500).send('Error al crear usuario. Detalles del error: ' + error.message);
   }
 });
@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
 
 
 router.get('/', async (req, res) => {
-  //if (req.user.role !== 'admin') return res.status(403).send('Access denied.');
+
 
   const users = await User.find();
   res.json(users);
